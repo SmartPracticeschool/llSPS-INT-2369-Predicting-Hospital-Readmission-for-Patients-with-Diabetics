@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Compressive Strength of Concrete</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+    	<input type="text" name="time_in_hospital" placeholder="time_in_hospital" required="required" />
+        <input type="text" name="num_lab_procedures" placeholder="num_lab_procedures" required="required" />
+		<input type="text" name="num_procedures" placeholder="num_procedures" required="required" />
+        <input type="text" name="num_medications" placeholder="num_medications" required="required" />
+        <input type="text" name="number_outpatient" placeholder="number_outpatient" required="required" />
+        <input type="text" name="number_emergency" placeholder="number_emergency" required="required" />
+        <input type="text" name="number_inpatient " placeholder="number_inpatient" required="required" />
+        <input type="text" name="number_diagnoses" placeholder="number_diagnoses" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+

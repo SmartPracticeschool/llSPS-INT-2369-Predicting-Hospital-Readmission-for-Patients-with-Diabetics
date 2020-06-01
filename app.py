@@ -19,7 +19,7 @@ def y_predict():
     prediction = model.predict(x_test)
     print(prediction)
     output=prediction[0][0]
-    return render_template('index.html', prediction_text='Compressive Strength of Concrete kg/m^3 {}'.format(output))
+    return render_template('index.html', prediction_text='Prediction {}'.format(output))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():

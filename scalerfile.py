@@ -142,3 +142,7 @@ knn_train_auc, knn_train_accuracy, knn_train_recall, \
 print('Validation:')
 knn_valid_auc, knn_valid_accuracy, knn_valid_recall, \
     knn_valid_precision, knn_valid_specificity = print_report(y_valid,y_valid_preds, thresh)
+
+pickle.dump(KNeighborsClassifier,open('best_classifier.pkl','wb'))
+model=pickle.load(open('best_classifier.pkl','rb'))
+            
